@@ -20,18 +20,19 @@
 
 #2. Comportement mécanique des poutres mixtes acier-bois
 ##2.1. Approche expérimentale
-###2.1.1. Caractérisation des matériaux
-          1. L'acier
-          2. Le bois
-             1. Flexion
-             2. Compression longitudinale
-             3. Compression transversale
-             4. Bilan
-###2.1.2. Essais de Flexion
+###2.1.1. Essais de Flexion
          1. Présentation des essais
          2. Déflexion des poutres
          3. Déplacements hors plan
          4. Déformations de l'acier
+###2.1.2. Caractérisation des matériaux
+    1. L'acier
+    2. Le bois
+      1. Compression longitudinale sur échantillons
+      2. Compression transversale sur échantillons
+      3. Flexion sur échantillons
+      4. Flexion sur poutres taille réelle
+      5. Bilan sur les propriétés du bois
 ##2.2. Approche numérique
       1. Développement d'un modèle numérique
       2. Résultats
