@@ -21,10 +21,19 @@
 #2. Comportement mécanique des poutres mixtes acier-bois
 ##2.1. Approche expérimentale
 ###2.1.1. Essais de Flexion
-         1. Présentation des essais
-         2. Déflexion des poutres
-         3. Déplacements hors plan
-         4. Déformations de l'acier
+         1. Configurations testées
+         2. Présentation des essais
+         3. Mesure des déformations dans l'acier
+         4. Déflexion des poutres
+            - Présentation des résultats
+            - Focus sur la ruine
+            - Principe de superposition
+            - Comportement composite
+         5. Ruine
+            - Rupture des poutre "bois seul"
+            - Rupture du bois pour les poutres mixtes
+            - Déplacements hors plan
+            - Bilan sur la ruine des poutres mixtes
 ###2.1.2. Caractérisation des matériaux
     1. L'acier
     2. Le bois
