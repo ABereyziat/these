@@ -20,35 +20,51 @@ Le bois massif est un matériau anisotrope, généralement considéré comme ort
 
 ## Comportement élastique linéaire
 Si cette représentation d'un bois pris comme un matériau orthotrope cylindrique est adoptée, alors la prise en compte des propriétés de symétrie matérielle rend possible la description de son comportement mécanique élastique linéaire à travers 12 complaisances élastique prises comme des constantes, dont 9 sont linéairement indépendantes (cf. Guitard 1987). Ces dernières quantifient la propension d'un matériau à se déformer dans une certaine direction sous l'effet d'une contrainte donnée. Pour les matériaux orthotrope il existe 3 complaisances axiales, 3 complaisances de cisaillement et 6 complaisances transversales dont 3 sont linéairement indépendantes. L'usage veut que le tenseur des complaisances élastiques soit formulé comme une matrice par le biais de la notation de Voigt et que les complaisances élastiques soient exprimées à travers des "grandeurs techniques" pour décrire les lois de comportement des matériaux. Ainsi, la loi de comportement élastique linéaire d'un bois orthotrope cylindrique est généralement exprimée à travers trois modules d'Young, autrement appelés modules d'élasticité, six coefficients de Poisson, et trois modules de cisaillement, assemblés dans une matrice des complaisances élastiques (reproduite d'après Guitard 1987). En général, la loi de comportement est utilisée en exprimant les contraintes en fonction des déformations, ce qui requiert une reformulation en inversant la matrice des complaisances élastiques pour obtenir la matrice de rigidité.
-
-![loi de comportement élastique linéaire orthotrope cylindrique du matériau bois (d'après Guitard 1987)](../pictures/equation_loi_comportement_bois_elastique_lineaire_orthotrope_cylindrique.jpg)
+$$
+    \begin{Bmatrix}
+    \epsilon_{11}\\
+    \epsilon_{22}\\
+    \epsilon_{33}\\
+    2\epsilon_{23}\\
+    2\epsilon_{31}\\
+    2\epsilon_{12}\\
+    \end{Bmatrix}
+    =
+     \begin{bmatrix}
+    \frac{1}{E_{r}}           & -\frac{\nu_{tr}}{{E_{t}}} & -\frac{\nu_{lr}}{{E_{l}}} &0                     &0                     &0\\
+    -\frac{\nu_{rt}}{{E_{r}}} & \frac{1}{E_{t}}           & -\frac{\nu_{lt}}{{E_{l}}} &0                     &0                     &0\\
+    -\frac{\nu_{rl}}{{E_{r}}} & -\frac{\nu_{tl}}{{E_{t}}} & \frac{1}{E_{l}}           &0                     &0                     &0\\
+    0                         &0                          &0                          &\frac{1}{G_{tl}}       &0                     &0\\
+    0                         &0                          &0                          &0                     &\frac{1}{G_{lr}}      &0\\
+    0                         &0                          &0                          &0                     &0                     &\frac{1}{G_{rt}}
+    \end{bmatrix}
+    \begin{Bmatrix}
+    \sigma_{11}\\
+    \sigma_{22}\\
+    \sigma_{33}\\
+    \sigma_{23}\\
+    \sigma_{31}\\
+    \sigma_{12}\\
+    \end{Bmatrix}
+    $$
+avec les trois conditions :
+$$ \dfrac{\nu_{rt}}{E_{r}}=\dfrac{\nu_{tr}}{E_{t}} \quad \textrm{;} \quad  \dfrac{\nu_{tl}}{E_{t}}=\dfrac{\nu_{lt}}{E_{l}} \quad \textrm{;} \quad  \dfrac{\nu_{lr}}{E_{l}}=\dfrac{\nu_{rl}}{E_{r}} $$
 
 Les valeurs des constantes de rigidité varient beaucoup d'une essence à une autre et demeurent compliquées à établir, ci-bien que les données disponibles sont relativement rares, néanmoins, les relations d'ordres entre ces différentes grandeurs restent globalement les mêmes quelque soit la nature du bois considéré. Guitard (cf. Guitard 1987) fournit une estimation de ces différentes constantes, ou des ratios qui les relient, pour des essences résineuses dont la masse volumique est proche de 450  kilogrammes par mètre cube :
 
-| Grandeur      | Valeur   |
-| ------------- | -------- |
-| $E_{L}/E_{R}$ | 13       |
-| $E_{L}/E_{T}$ | 21       |
-| $E_{R}/E_{T}$ | 1,6      |
-| $\nu_{RT}$    | 0,51     |
-| $\nu_{LT}$    | 0,43     |
-| $\nu_{LR}$    | 0,39     |
-| $\nu_{TR}$    | 0,31     |
-| $\nu_{RL}$    | 0,03     |
-| $\nu_{TL}$    | 0,02     |
-| $G_{LR}$      | 862 MPa  |
-| $G_{TL}$      | 745 MPa  |
-| $G_{LR}$      | 83,6 MPa |
+| Grandeur | $E_{l}/E_{r}$ | $E_{l}/E_{t}$ | $E_{r}/E_{t}$ | $\nu_{rt}$ | $\nu_{lt}$ | $\nu_{lr}$ | $\nu_{tr}$ | $\nu_{rl}$ | $\nu_{tl}$ | $G_{lr}$ | $G_{tl}$ | $G_{tr}$ |
+| -------- | ------------- | ------------- | ------------- | ---------- | ---------- | ---------- | ---------- | ---------- | ---------- | -------- | -------- | -------- |
+| Valeur   | 13            | 21            | 1,6           | 0,51       | 0,43       | 0,39       | 0,31       | 0,03       | 0,02       | 862 MPa  | 745 MPa  | 83,6 MPa |
 
 Les modules d'élasticité rendent comptent de la raideur du matériau soumis à une contrainte de traction ou de compression uni-axiale dans une direction données. Les différences dans les ordres de grandeurs des trois modules d'Young rendent comptent du fort degré d'anisotropie du bois. Guitard met ces ordre de grandeur en relation avec la microstructure du bois de la façon suivante :
->"la majorité des fibres étant orientées suivant l'axe du tronc, celles-ci confèrent un renforcement fibreux dans la direction longitudinale d'où $E_{L}$ grand. Les fibres constituant les rayons ligneux induisent un renforcement radial [...]. Sous un effort tangentiel, les fibres longitudinales et les rayons ligneux sont sollicités perpendiculairement au grand axe des fibres d'où $E_{T}$ le plus faible." (Cf. Guitard 1987).
+>"la majorité des fibres étant orientées suivant l'axe du tronc, celles-ci confèrent un renforcement fibreux dans la direction longitudinale d'où $E_{l}$ grand. Les fibres constituant les rayons ligneux induisent un renforcement radial [...]. Sous un effort tangentiel, les fibres longitudinales et les rayons ligneux sont sollicités perpendiculairement au grand axe des fibres d'où $E_{t}$ le plus faible." (Cf. Guitard 1987).
 
-Par ailleurs, la variété des coefficients de Poisson peut prêter à confusion, il apparaît alors utile de garder en tête que dans le cadre d'un essai uni-axial, le coefficient $\nu_{ij}$ peut être vu comme "le rapport de l'élongation $\epsilon_{j}$ à l'élongation $\epsilon_{i}$ qui résultent d'une sollicitation $\sigma_{i}$" (cf. Guitard 1987). Guitard pointe également le fait que $\nu_{RT}$ peut dépasser la valeur limite de 0,5 établie pour les matériaux isotropes sans que cela pose problème. À l'inverse  $\nu_{RL}$ et $\nu_{TL}$ sont très faibles, ce qui rend leur valeur particulièrement difficile à déterminer expérimentalement et donc très incertaine.
+Par ailleurs, la variété des coefficients de Poisson peut prêter à confusion, il apparaît alors utile de garder en tête que dans le cadre d'un essai uni-axial, le coefficient $\nu_{ij}$ peut être vu comme "le rapport de l'élongation $\epsilon_{j}$ à l'élongation $\epsilon_{i}$ qui résultent d'une sollicitation $\sigma_{i}$" (cf. Guitard 1987). Guitard pointe également le fait que $\nu_{rt}$ peut dépasser la valeur limite de 0,5 établie pour les matériaux isotropes sans que cela pose problème. À l'inverse  $\nu_{rl}$ et $\nu_{tl}$ sont très faibles, ce qui rend leur valeur particulièrement difficile à déterminer expérimentalement et donc très incertaine.
 
 Finalement, les modules de cisaillement rendent compte de la rigidité du matériau soumis à une sollicitation en cisaillement dans un plan donné. Les propriétés de symétrie du tenseur des déformations dans le plan font en sorte que l'indexation des modules de cisaillement n'est pas ordonnée, on a ainsi $G_{ij}=G_{ji}$. les relations d'ordres entre les différents modules de cisaillement peuvent une nouvelle fois relever d'une interprétation fondée sur l'observation de la microstructure du bois :
-- Dans le plan longitudinal-radial, l'orientation des trachéides confère une forte rigidité dans la direction longitudinale, tandis que les rayon ligneux constituent un renfort dans la direction radiale, $G_{LR}$ constitue donc le module de cisaillement le plus élevé.
-- L'absence de cellules préférentiellement orientées selon la direction tangentielle engendre le fait qu'aucun renforcement transversal n'existe dans le plan longitudinal-tangentiel, ainsi seules les fibres orientées longitudinalement offrent une rigidité significative, ce qui explique que $G_{LT}$ soit plus faible. La différence avec $G_{LR}$ est cependant relativement faible pour les bois résineux étant donné qu'ils ne comportent qu'une faible quantité de rayons ligneux en comparaison avec les bois feuillus.
-- Dans le plan radial-tangentiel, les seules cellules sollicitées selon leur axe privilégié sont les rayons ligneux, peu nombreux pour les essences résineuses, tandis que les fibres longitudinales qui composent la majorité du bois sont sollicitées transversalement, le module $G_{RT}$ est donc relativement faible. Le cisaillement dans ce plan perpendiculaire au fil du bois est parfois dénommé sous le terme "cisaillement roulant" car le mode de rupture qui le caractérise se manifeste par le roulement des fibres les unes sur les autres, ce qui engendre une perte de cohésion, plutôt que par un écrasement transversal de ces fibres (cf. Ehrhart 2018).
+- Dans le plan longitudinal-radial, l'orientation des trachéides confère une forte rigidité dans la direction longitudinale, tandis que les rayon ligneux constituent un renfort dans la direction radiale, $G_{lr}$ constitue donc le module de cisaillement le plus élevé.
+- L'absence de cellules préférentiellement orientées selon la direction tangentielle engendre le fait qu'aucun renforcement transversal n'existe dans le plan longitudinal-tangentiel, ainsi seules les fibres orientées longitudinalement offrent une rigidité significative, ce qui explique que $G_{lt}$ soit plus faible. La différence avec $G_{lr}$ est cependant relativement faible pour les bois résineux étant donné qu'ils ne comportent qu'une faible quantité de rayons ligneux en comparaison avec les bois feuillus.
+- Dans le plan radial-tangentiel, les seules cellules sollicitées selon leur axe privilégié sont les rayons ligneux, peu nombreux pour les essences résineuses, tandis que les fibres longitudinales qui composent la majorité du bois sont sollicitées transversalement, le module $G_{rt}$ est donc relativement faible. Le cisaillement dans ce plan perpendiculaire au fil du bois est parfois dénommé sous le terme "cisaillement roulant" car le mode de rupture qui le caractérise se manifeste par le roulement des fibres les unes sur les autres, ce qui engendre une perte de cohésion, plutôt que par un écrasement transversal de ces fibres (cf. Ehrhart 2018).
 
 Comportement élastique linéaire
 "le comportement élastique d'un matériau quelconque est caractérisé par le tenseur matériel S des complaisances élastiques qui relie l'état des déformation à l'état des contraintes"
